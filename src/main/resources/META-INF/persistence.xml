@@ -4,7 +4,7 @@
   xmlns="https://jakarta.ee/xml/ns/persistence"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-  <persistence-unit name="diginamic-resultat-club">
+  <persistence-unit name="diginamic-resultat-club-init">
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
       <property name="jakarta.persistence.jdbc.url"
@@ -12,6 +12,19 @@
       <property name="jakarta.persistence.jdbc.user" value="postgres" />
       <property name="jakarta.persistence.jdbc.password" value="root" />
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+      <property name="hibernate.show_sql" value="true" />
+      <property name="hibernate.format_sql" value="true" />
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="diginamic-resultat-club">
+    <properties>
+      <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+      <property name="jakarta.persistence.jdbc.url"
+        value="jdbc:postgresql://localhost:5432/diginamic_resultat_club" />
+      <property name="jakarta.persistence.jdbc.user" value="postgres" />
+      <property name="jakarta.persistence.jdbc.password" value="root" />
+      <property name="jakarta.persistence.schema-generation.database.action" value="update" />
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
       <property name="hibernate.show_sql" value="true" />
       <property name="hibernate.format_sql" value="true" />
