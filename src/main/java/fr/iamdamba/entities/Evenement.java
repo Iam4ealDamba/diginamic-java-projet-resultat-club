@@ -16,10 +16,9 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Evenement {
-  @Id 
+  @Id
   private String id;
 
   @Column(name = "date")
@@ -53,5 +52,11 @@ public class Evenement {
   @ManyToOne
   @JoinColumn(name = "joueur_remplacant_id", nullable = true)
   private Joueur joueurRemplacant;
+
+  @Override
+  public String toString() {
+    return "Evenement [id=" + id + ", date=" + date + ", minutes=" + minutes + ", type=" + type + ", description="
+        + description + "]";
+  }
 
 }

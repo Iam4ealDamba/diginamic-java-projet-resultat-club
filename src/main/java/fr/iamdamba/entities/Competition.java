@@ -1,5 +1,6 @@
 package fr.iamdamba.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -16,7 +17,7 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
+// @ToString
 @NoArgsConstructor
 public class Competition {
   @Id
@@ -57,5 +58,12 @@ public class Competition {
 
   @OneToMany(mappedBy = "competition")
   private List<Apparition> apparitions;
+
+  @Override
+  public String toString() {
+    return "Competition [id=" + id + ", competitionCode=" + competitionCode + ", name=" + name + ", sousType="
+        + sousType + ", type=" + type + ", idPays=" + idPays + ", nomPays=" + nomPays + ", codeLigueHebergeur="
+        + codeLigueHebergeur + ", confederation=" + confederation + ", url=" + url + "]";
+  }
 
 }

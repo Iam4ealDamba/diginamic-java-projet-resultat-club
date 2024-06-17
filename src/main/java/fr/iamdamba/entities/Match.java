@@ -19,7 +19,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Match {
   @Id
@@ -82,5 +81,14 @@ public class Match {
 
   @OneToMany(mappedBy = "match")
   private List<Composition> compositions;
+
+  @Override
+  public String toString() {
+    return "Match [id=" + id + ", saison=" + saison + ", tour=" + tour + ", date=" + date + ", nbButsDomicile="
+        + nbButsDomicile + ", nbButsExterieur=" + nbButsExterieur + ", domicilePosition=" + domicilePosition
+        + ", exterieurPosition=" + exterieurPosition + ", entraineurDomicile=" + entraineurDomicile
+        + ", entraineurExterieur=" + entraineurExterieur + ", stade=" + stade + ", arbitre=" + arbitre + ", url=" + url
+        + ", score=" + score + "]";
+  }
 
 }

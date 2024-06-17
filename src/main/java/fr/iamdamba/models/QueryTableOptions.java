@@ -36,6 +36,10 @@ public class QueryTableOptions {
                     case 1:
                         CompetitionDisplay.showAll();
                         break;
+                    case 2:
+                        System.out.println("Entrer le nom du pays: ");
+                        CompetitionDisplay.showAllByCountry(scanner.next());
+                        break;
                     case 3:
                         System.out.println("Entrer l'identifiant à afficher : ");
                         CompetitionDisplay.showOne(scanner.next());
@@ -90,7 +94,7 @@ public class QueryTableOptions {
             System.out.println("Quel requête pour la table joueur : ");
             System.out.println("0 - Retour en arrière");
             System.out.println("1 - Tout afficher");
-            System.out.println("2 - Tout afficher par pays");
+            System.out.println("2 - Tout afficher par pays de naissance");
             System.out.println("3 - Afficher un joueur par son identifiant");
 
             Scanner scanner = new Scanner(System.in);
@@ -103,6 +107,10 @@ public class QueryTableOptions {
                         break;
                     case 1:
                         JoueurDisplay.showAll();
+                        break;
+                    case 2:
+                        System.out.println("Entrer le nom du pays: ");
+                        JoueurDisplay.showAllByCountry(scanner.next());
                         break;
                     case 3:
                         System.out.println("Entrer l'identifiant à afficher : ");
@@ -124,7 +132,7 @@ public class QueryTableOptions {
             System.out.println("Quel requête pour la table valeur joueur : ");
             System.out.println("0 - Retour en arrière");
             System.out.println("1 - Tout afficher");
-            System.out.println("2 - Tout afficher par pays");
+            System.out.println("2 - Tout afficher par pays de naissance de joueur");
             System.out.println("3 - Afficher une valeur joueur par son identifiant");
             System.out.println();
 
@@ -138,6 +146,10 @@ public class QueryTableOptions {
                         break;
                     case 1:
                         ValeurMarcheDisplay.showAll();
+                        break;
+                    case 2:
+                        System.out.println("Entrer le nom du pays: ");
+                        ValeurMarcheDisplay.showAllByCountry(scanner.next());
                         break;
                     case 3:
                         System.out.println("Entrer l'identifiant à afficher : ");
@@ -159,7 +171,7 @@ public class QueryTableOptions {
             System.out.println("Quel requête pour la table match : ");
             System.out.println("0 - Retour en arrière");
             System.out.println("1 - Tout afficher");
-            System.out.println("2 - Tout afficher par pays");
+            System.out.println("2 - Tout afficher par saison");
             System.out.println("3 - Afficher un match par son identifiant");
             System.out.println();
 
@@ -173,6 +185,10 @@ public class QueryTableOptions {
                         break;
                     case 1:
                         MatchDisplay.showAll();
+                        break;
+                    case 2:
+                        System.out.println("Entrer la saison: ");
+                        MatchDisplay.showAllBySeason(scanner.nextInt());
                         break;
                     case 3:
                         System.out.println("Entrer l'identifiant à afficher : ");
@@ -263,8 +279,7 @@ public class QueryTableOptions {
             System.out.println("Quel requête pour la table apparition : ");
             System.out.println("0 - Retour en arrière");
             System.out.println("1 - Tout afficher");
-            System.out.println("2 - Tout afficher par pays");
-            System.out.println("3 - Afficher une apparition par son identifiant");
+            System.out.println("2 - Afficher une apparition par son identifiant");
             System.out.println();
 
             Scanner scanner = new Scanner(System.in);
@@ -278,9 +293,9 @@ public class QueryTableOptions {
                     case 1:
                         ApparitionDisplay.showAll();
                         break;
-                    case 3:
+                    case 2:
                         System.out.println("Entrer l'identifiant à afficher : ");
-                        ApparitionDisplay.showOne(scanner.nextInt());
+                        ApparitionDisplay.showOne(scanner.next());
                         break;
                     default:
                         System.out.println("Erreur: Veuillez entrer un choix valide");

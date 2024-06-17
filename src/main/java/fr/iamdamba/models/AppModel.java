@@ -51,8 +51,7 @@ public class AppModel {
         while (this.isAppClose == false) {
             System.out.println("Veuillez choisir une option en dessous : ");
             System.out.println("1 - Choisir une table");
-            System.out.println("2 - Choisir une requête spécifique");
-            System.out.println("3 - Quitter l'application");
+            System.out.println("2 - Quitter l'application");
             System.out.println();
             System.out.println("Votre choix : ");
 
@@ -68,7 +67,7 @@ public class AppModel {
                             logger.error("Erreur: Impossible de choisir une table: \n", e);
                         }
                         break;
-                    case 3:
+                    case 2:
                         System.out.println("Fermeture de l'application...");
                         this.isAppClose = true;
                         scanner.close();

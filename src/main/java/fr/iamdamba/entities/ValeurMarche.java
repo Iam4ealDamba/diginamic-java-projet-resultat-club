@@ -20,7 +20,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class ValeurMarche {
 
@@ -52,6 +51,12 @@ public class ValeurMarche {
 
   public Competition getCompetitionClubJoueur() {
     return joueur.getClubActuel().getCompetition();
+  }
+
+  @Override
+  public String toString() {
+    return "ValeurMarche [id=" + id + ", derniereSaison=" + derniereSaison + ", dateHeure=" + dateHeure + ", date="
+        + date + ", dateSemaine=" + dateSemaine + ", valeur=" + valeur + "]";
   }
 
 }

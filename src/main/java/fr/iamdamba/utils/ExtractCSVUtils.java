@@ -28,9 +28,7 @@ public class ExtractCSVUtils {
     // Passer la première ligne
     scanner.nextLine();
 
-    // Lire le reste des lignes
-    Integer count = 0;
-    while (count < 100) {
+    while (scanner.hasNextLine()) {
       String[] lines = scanner.nextLine().split(regexString, -1);
       Apparition apparition = new Apparition();
       apparition.setId(lines[0]);
@@ -63,7 +61,6 @@ public class ExtractCSVUtils {
 
       apparitions.add(apparition);
 
-      count++;
     }
     scanner.close();
     return apparitions;
@@ -183,9 +180,7 @@ public class ExtractCSVUtils {
     // Passer la première ligne
     scanner.nextLine();
 
-    // Lire le reste des lignes
-    Integer count = 0;
-    while (count < 100) {
+    while (scanner.hasNextLine()) {
       String[] lines = scanner.nextLine().split(regexString, -1);
       Evenement evenement = new Evenement();
       evenement.setId(lines[0]);
@@ -220,7 +215,6 @@ public class ExtractCSVUtils {
       evenement.setJoueurAssistant(assistant);
 
       Evenements.add(evenement);
-      count++;
     }
     scanner.close();
     return Evenements;

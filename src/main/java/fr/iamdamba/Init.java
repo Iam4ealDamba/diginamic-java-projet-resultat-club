@@ -181,56 +181,48 @@ public class Init {
 		jpaConfig.commitTransaction();
 		// #endregion
 
-		// // #region Transaction des evenements
-		// jpaConfig.startTransaction();
+		// #region Transaction des evenements
+		jpaConfig.startTransaction();
 
-		// EvenementDao evenementDao = new EvenementDao(jpaConfig.getManager(), logger);
-		// List<Evenement> evenementsToPush = new ArrayList<>();
-		// for (Evenement evenement : evenementsFromCSV) {
-		// Boolean isMatchFind = matchDao.listItems.stream()
-		// .anyMatch(match -> match.getId().equals(evenement.getMatch().getId()));
-		// Boolean isClubFind = clubDao.listItems.stream()
-		// .anyMatch(club -> club.getId().equals(evenement.getClub().getId()));
-		// Boolean isJoueurFind = joueursFromCSV.stream()
-		// .anyMatch(joueur -> joueur.getId().equals(evenement.getJoueur().getId()));
-		// Boolean isJoueurAssistantFind = joueursFromCSV.stream()
-		// .anyMatch(joueur ->
-		// joueur.getId().equals(evenement.getJoueurAssistant().getId()));
-		// Boolean isJoueurRemplacantFind = joueursFromCSV.stream()
-		// .anyMatch(joueur ->
-		// joueur.getId().equals(evenement.getJoueurRemplacant().getId()));
+		EvenementDao evenementDao = new EvenementDao(jpaConfig.getManager(), logger);
+		List<Evenement> evenementsToPush = new ArrayList<>();
+		for (Evenement evenement : evenementsFromCSV) {
+			Boolean isMatchFind = matchDao.listItems.stream()
+					.anyMatch(match -> match.getId().equals(evenement.getMatch().getId()));
+			Boolean isClubFind = clubDao.listItems.stream()
+					.anyMatch(club -> club.getId().equals(evenement.getClub().getId()));
+			Boolean isJoueurFind = joueursFromCSV.stream()
+					.anyMatch(joueur -> joueur.getId().equals(evenement.getJoueur().getId()));
+			Boolean isJoueurAssistantFind = joueursFromCSV.stream()
+					.anyMatch(joueur -> joueur.getId().equals(evenement.getJoueurAssistant().getId()));
+			Boolean isJoueurRemplacantFind = joueursFromCSV.stream()
+					.anyMatch(joueur -> joueur.getId().equals(evenement.getJoueurRemplacant().getId()));
 
-		// if (isMatchFind && isClubFind && isJoueurFind) {
-		// evenement.setMatch(matchDao.listItems.stream()
-		// .filter(match ->
-		// match.getId().equals(evenement.getMatch().getId())).findFirst().get());
-		// evenement.setClub(clubDao.listItems.stream()
-		// .filter(club ->
-		// club.getId().equals(evenement.getClub().getId())).findFirst().get());
-		// evenement.setJoueur(joueursFromCSV.stream()
-		// .filter(joueur ->
-		// joueur.getId().equals(evenement.getJoueur().getId())).findFirst().get());
-		// evenement.setJoueurAssistant(isJoueurAssistantFind ? joueursFromCSV.stream()
-		// .filter(joueur ->
-		// joueur.getId().equals(evenement.getJoueurAssistant().getId())).findFirst()
-		// .get() : null);
-		// evenement.setJoueurRemplacant(isJoueurRemplacantFind ?
-		// joueursFromCSV.stream()
-		// .filter(joueur ->
-		// joueur.getId().equals(evenement.getJoueurRemplacant().getId())).findFirst()
-		// .get() : null);
-		// evenementsToPush.add(evenement);
-		// }
-		// }
+			if (isMatchFind && isClubFind && isJoueurFind) {
+				evenement.setMatch(matchDao.listItems.stream()
+						.filter(match -> match.getId().equals(evenement.getMatch().getId())).findFirst().get());
+				evenement.setClub(clubDao.listItems.stream()
+						.filter(club -> club.getId().equals(evenement.getClub().getId())).findFirst().get());
+				evenement.setJoueur(joueursFromCSV.stream()
+						.filter(joueur -> joueur.getId().equals(evenement.getJoueur().getId())).findFirst().get());
+				evenement.setJoueurAssistant(isJoueurAssistantFind ? joueursFromCSV.stream()
+						.filter(joueur -> joueur.getId().equals(evenement.getJoueurAssistant().getId())).findFirst()
+						.get() : null);
+				evenement.setJoueurRemplacant(isJoueurRemplacantFind ? joueursFromCSV.stream()
+						.filter(joueur -> joueur.getId().equals(evenement.getJoueurRemplacant().getId())).findFirst()
+						.get() : null);
+				evenementsToPush.add(evenement);
+			}
+		}
 
-		// logger.info("Liste des evenements a inserer : " + evenementsToPush.size());
+		logger.info("Liste des evenements a inserer : " + evenementsToPush.size());
 
-		// for (Evenement evenement : evenementsToPush) {
-		// evenementDao.create(evenement);
-		// }
+		for (Evenement evenement : evenementsToPush) {
+			evenementDao.create(evenement);
+		}
 
-		// jpaConfig.commitTransaction();
-		// // #endregion
+		jpaConfig.commitTransaction();
+		// #endregion
 
 		// #region Transaction des compositions
 		jpaConfig.startTransaction();
@@ -314,4 +306,3 @@ public class Init {
 		jpaConfig.close();
 	}
 }
-

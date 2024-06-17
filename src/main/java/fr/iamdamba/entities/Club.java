@@ -19,7 +19,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Club {
   @Id
@@ -96,4 +95,12 @@ public class Club {
   public Integer getNbJoueurEquipeNational() {
     return nbJoueurEquipeNational;
   }
+
+  @Override
+  public String toString() {
+    return "Club [id=" + id + ", codeClub=" + codeClub + ", nom=" + nom + ", nbJoueurEquipeNational="
+        + nbJoueurEquipeNational + ", nomStade=" + nomStade + ", nbSiegeStade=" + nbSiegeStade + ", recordNetTransfert="
+        + recordNetTransfert + ", nomCoach=" + nomCoach + ", derniereSaison=" + derniereSaison + ", url=" + url + "]";
+  }
+
 }

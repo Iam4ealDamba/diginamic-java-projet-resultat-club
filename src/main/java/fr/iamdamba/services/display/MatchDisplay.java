@@ -3,6 +3,10 @@ package fr.iamdamba.services.display;
 import java.util.List;
 import java.util.Optional;
 
+import fr.iamdamba.entities.Apparition;
+import fr.iamdamba.entities.Club;
+import fr.iamdamba.entities.Competition;
+import fr.iamdamba.entities.Composition;
 import fr.iamdamba.entities.Match;
 import fr.iamdamba.entities.Match;
 import fr.iamdamba.entities.Match;
@@ -40,21 +44,77 @@ public class MatchDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    public static void showAllBySeason(Integer saison) {
+        AppModel.jpaConfig.startTransaction();
+        MatchDao dao = new MatchDao(AppModel.jpaConfig.getManager(), AppModel.logger);
+        List<Match> query = dao.all();
+
+        System.out.println("\nListe des Matchs: \n");
+
+        if (query.stream().count() == 0) {
+            System.out.println("Aucune Match n'a été trouve\n");
+            AppModel.jpaConfig.commitTransaction();
+        } else {
+            query.stream().filter(q -> q.getSaison().equals(saison)).forEach(q -> {
+                System.out.println(q.toString());
+                System.out.println();
+            });
+            System.out.println();
+        }
+
+        // Separateur de ligne
+        System.out.println("------------------------------------\n");
+
+        AppModel.jpaConfig.commitTransaction();
+    }
+
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         MatchDao dao = new MatchDao(AppModel.jpaConfig.getManager(), AppModel.logger);
         Optional<Match> query = dao.one(id);
 
-        System.out.println("\nLa Match correspondant à l'id " + id + ": ");
+        System.out.println("\nLa Match correspondant à l'id " + id + ": \n");
 
         if (query.isEmpty()) {
             System.out.println("Cette Match n'existe pas\n");
             AppModel.jpaConfig.commitTransaction();
         } else {
+            Competition competition = query.get().getCompetition();
+            Club domicile = query.get().getDomicile();
+            Club exterieur = query.get().getExterieur();
+            List<Apparition> apparitions = query.get().getApparitions();
+            List<Composition> compositions = query.get().getCompositions();
+
             System.out.println(query.get().toString());
             System.out.println();
-        }
-        AppModel.jpaConfig.commitTransaction();
-    }
 
+            if (competition != null) {
+                System.out.println("Competition: " + competition.toString());
+                System.out.println();
+            }
+
+            if (domicile != null) {
+                System.out.println("Domicile: " + domicile.toString());
+                System.out.println();
+            }
+
+            if (exterieur != null) {
+                System.out.println("Exterieur: " + exterieur.toString());
+                System.out.println();
+            }
+
+            if (apparitions != null) {
+                System.out.println("Liste des apparitions: ");
+                apparitions.forEach(q -> {
+                    System.out.println(q.toString());
+                });
+                System.out.println();
+            }
+
+            // Separateur de ligne
+            System.out.println("------------------------------------\n");
+
+            AppModel.jpaConfig.commitTransaction();
+        }
+    }
 }

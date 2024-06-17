@@ -11,12 +11,10 @@ import jakarta.persistence.Temporal;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Apparition {
   @Id
@@ -59,6 +57,12 @@ public class Apparition {
 
   public Club getClubJoueurActuel() {
     return this.joueur.getClubActuel();
+  }
+
+  @Override
+  public String toString() {
+    return "Apparition [id=" + id + ", nbCartonRouge=" + nbCartonRouge + ", nbCartonJaune=" + nbCartonJaune + ", nbBut="
+        + nbBut + ", nbAssistance=" + nbAssistance + ", tempsJouer=" + tempsJouer + ", date=" + date + "]";
   }
 
 }

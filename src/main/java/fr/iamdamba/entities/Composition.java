@@ -17,7 +17,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Composition {
   @Id
@@ -46,4 +45,11 @@ public class Composition {
   @ManyToOne
   @JoinColumn(name = "joueur_id")
   private Joueur joueur;
+
+  @Override
+  public String toString() {
+    return "Composition [id=" + id + ", type=" + type + ", number=" + number + ", position=" + position
+        + ", capitaineEquipe=" + capitaineEquipe + "]";
+  }
+
 }

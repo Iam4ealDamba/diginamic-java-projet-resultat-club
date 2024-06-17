@@ -20,7 +20,6 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Joueur {
   @Id
@@ -92,6 +91,16 @@ public class Joueur {
 
   public Competition getCompetitionClubActuel() {
     return this.clubActuel.getCompetition();
+  }
+
+  @Override
+  public String toString() {
+    return "Joueur [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", derniereSaison=" + derniereSaison + ", code="
+        + code + ", PaysNaissance=" + PaysNaissance + ", villeNaissance=" + villeNaissance + ", paysResidence="
+        + paysResidence + ", dateNaissance=" + dateNaissance + ", positionSecondaire=" + positionSecondaire
+        + ", position=" + position + ", pied=" + pied + ", taille=" + taille + ", recordValeurMarche="
+        + recordValeurMarche + ", dateExpirationContrat=" + dateExpirationContrat + ", nomAgent=" + nomAgent
+        + ", imageUrl=" + imageUrl + ", url=" + url + "]";
   }
 
 }
