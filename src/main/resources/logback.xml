@@ -11,7 +11,7 @@
   <!-- # Override log level for specified package -->
   <logger name="com.baeldung.log4j" level="TRACE" />
 
-  <root level="INFO">
+  <root level="ERROR">
     <appender-ref ref="stdout" />
   </root>
 </configuration>

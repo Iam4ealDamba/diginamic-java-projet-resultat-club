@@ -27,26 +27,26 @@ import fr.iamdamba.services.MatchDao;
 import fr.iamdamba.services.ValeurMarcheDao;
 import fr.iamdamba.utils.ExtractCSVUtils;
 
-public class MainInit {
+public class Init {
 	public static void main(String[] args) throws FileNotFoundException {
 		// #region Initialisation Variables de l'application
-		Logger logger = LoggerFactory.getLogger(MainInit.class);
+		Logger logger = LoggerFactory.getLogger(Init.class);
 		JpaConfig jpaConfig = new JpaConfig("diginamic-resultat-club-init", logger);
 		// #endregion
 
 		// #region Initialisation fichier CSV
-		String pathCSVApparition = MainInit.class.getClassLoader().getResource("./csv/8.appearances.csv")
+		String pathCSVApparition = Init.class.getClassLoader().getResource("./csv/8.appearances.csv")
 				.getPath();
-		String pathCSVClub = MainInit.class.getClassLoader().getResource("./csv/2.clubs.csv").getPath();
-		String pathCSVCompetition = MainInit.class.getClassLoader().getResource("csv/1.competitions.csv")
+		String pathCSVClub = Init.class.getClassLoader().getResource("./csv/2.clubs.csv").getPath();
+		String pathCSVCompetition = Init.class.getClassLoader().getResource("csv/1.competitions.csv")
 				.getPath();
-		String pathCSVComposition = MainInit.class.getClassLoader().getResource("./csv/7.game_lineups.csv")
+		String pathCSVComposition = Init.class.getClassLoader().getResource("./csv/7.game_lineups.csv")
 				.getPath();
-		String pathCSVEvenement = MainInit.class.getClassLoader().getResource("./csv/6.game_events.csv")
+		String pathCSVEvenement = Init.class.getClassLoader().getResource("./csv/6.game_events.csv")
 				.getPath();
-		String pathCSVJoueur = MainInit.class.getClassLoader().getResource("./csv/3.players.csv").getPath();
-		String pathCSVMatch = MainInit.class.getClassLoader().getResource("./csv/5.games.csv").getPath();
-		String pathCSVValeurMarche = MainInit.class.getClassLoader()
+		String pathCSVJoueur = Init.class.getClassLoader().getResource("./csv/3.players.csv").getPath();
+		String pathCSVMatch = Init.class.getClassLoader().getResource("./csv/5.games.csv").getPath();
+		String pathCSVValeurMarche = Init.class.getClassLoader()
 				.getResource("./csv/4.player_valuations.csv")
 				.getPath();
 
