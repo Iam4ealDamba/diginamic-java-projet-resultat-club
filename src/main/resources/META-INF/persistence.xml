@@ -9,7 +9,7 @@
       <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
       <property
         name="jakarta.persistence.jdbc.url"
-        value="jdbc:postgresql://localhost:5432/diginamic_resultat_club" />
+        value="jdbc:postgresql://localhost:5432/diginamic_resultat_club?charSet=UTF-8" />
       <property
         name="jakarta.persistence.jdbc.user" value="postgres" />
       <property
@@ -22,9 +22,9 @@
         name="hibernate.show_sql" value="true" />
       <property name="hibernate.format_sql" value="true" />
       <property
-        name="hibernate.connection.CharSet" value="utf8" />
+        name="hibernate.connection.CharSet" value="UTF-8" />
       <property
-        name="hibernate.connection.characterEncoding" value="utf8" />
+        name="hibernate.connection.characterEncoding" value="UTF-8" />
       <property
         name="hibernate.connection.useUnicode" value="true" />
     </properties>
@@ -33,7 +33,7 @@
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
       <property name="jakarta.persistence.jdbc.url"
-        value="jdbc:postgresql://localhost:5432/diginamic_resultat_club" />
+        value="jdbc:postgresql://localhost:5432/diginamic_resultat_club?charSet=UTF-8" />
       <property name="jakarta.persistence.jdbc.user" value="postgres" />
       <property name="jakarta.persistence.jdbc.password" value="root" />
       <property name="jakarta.persistence.schema-generation.database.action" value="update" />
@@ -41,9 +41,9 @@
       <property name="hibernate.show_sql" value="false" />
       <property name="hibernate.format_sql" value="true" />
       <property
-        name="hibernate.connection.CharSet" value="utf8" />
+        name="hibernate.connection.CharSet" value="UTF-8" />
       <property
-        name="hibernate.connection.characterEncoding" value="utf8" />
+        name="hibernate.connection.characterEncoding" value="UTF-8" />
       <property
         name="hibernate.connection.useUnicode" value="true" />
     </properties>

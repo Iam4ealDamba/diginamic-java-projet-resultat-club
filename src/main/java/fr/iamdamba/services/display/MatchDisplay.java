@@ -16,7 +16,7 @@ import fr.iamdamba.services.MatchDao;
 import fr.iamdamba.services.MatchDao;
 
 public class MatchDisplay {
-
+    /** Affiche la liste des Matchs */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         MatchDao dao = new MatchDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -44,6 +44,7 @@ public class MatchDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la liste des Matchs d'une saison */
     public static void showAllBySeason(Integer saison) {
         AppModel.jpaConfig.startTransaction();
         MatchDao dao = new MatchDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -68,6 +69,7 @@ public class MatchDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la Match correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         MatchDao dao = new MatchDao(AppModel.jpaConfig.getManager(), AppModel.logger);

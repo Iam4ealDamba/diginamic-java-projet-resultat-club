@@ -13,7 +13,7 @@ import fr.iamdamba.services.display.MatchDisplay;
 import fr.iamdamba.services.display.ValeurMarcheDisplay;
 
 public class QueryTableOptions {
-
+    /** Affiche les options de requête pour la table Competition */
     public static void competitionOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
 
@@ -55,13 +55,16 @@ public class QueryTableOptions {
 
     }
 
+    /** Affiche les options de requête pour la table Club */
     public static void clubOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
         while (returnBack == false) {
             System.out.println("Quel requête pour la table club : ");
             System.out.println("0 - Retour en arrière");
             System.out.println("1 - Tout afficher");
-            System.out.println("3 - Afficher un club par son identifiant");
+            System.out.println("2 - Afficher les matchs à domicile d'un club");
+            System.out.println("3 - Afficher les matchs à l'extérieur d'un club");
+            System.out.println("4 - Afficher un club par son identifiant");
 
             Scanner scanner = new Scanner(System.in);
             if (scanner.hasNextInt()) {
@@ -74,7 +77,15 @@ public class QueryTableOptions {
                     case 1:
                         ClubDisplay.showAll();
                         break;
+                    case 2:
+                        System.out.println("Entrer l'identifiant du club : ");
+                        ClubDisplay.showAllHomeMatchs(scanner.nextInt());
+                        break;
                     case 3:
+                        System.out.println("Entrer l'identifiant du club : ");
+                        ClubDisplay.showAllVisitorMatchs(scanner.nextInt());
+                        break;
+                    case 4:
                         System.out.println("Entrer l'identifiant à afficher : ");
                         ClubDisplay.showOne(scanner.nextInt());
                         break;
@@ -88,6 +99,7 @@ public class QueryTableOptions {
         }
     }
 
+    /** Affiche les options de requête pour la table Joueur */
     public static void joueurOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
         while (returnBack == false) {
@@ -126,6 +138,7 @@ public class QueryTableOptions {
         }
     }
 
+    /** Affiche les options de requête pour la table ValeurMarche */
     public static void valeurMarcheOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
         while (returnBack == false) {
@@ -165,6 +178,7 @@ public class QueryTableOptions {
         }
     }
 
+    /** Affiche les options de requête pour la table Match */
     public static void matchOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
         while (returnBack == false) {
@@ -204,6 +218,7 @@ public class QueryTableOptions {
         }
     }
 
+    /** Affiche les options de requête pour la table Evenement */
     public static void evenementOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
         while (returnBack == false) {
@@ -239,6 +254,7 @@ public class QueryTableOptions {
         }
     }
 
+    /** Affiche les options de requête pour la table Composition */
     public static void compositionOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
         while (returnBack == false) {
@@ -273,6 +289,7 @@ public class QueryTableOptions {
         }
     }
 
+    /** Affiche les options de requête pour la table Apparition */
     public static void apparitionOption() throws InterruptedException, IOException {
         Boolean returnBack = false;
         while (returnBack == false) {

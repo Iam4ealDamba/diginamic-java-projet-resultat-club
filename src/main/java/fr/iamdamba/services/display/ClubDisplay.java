@@ -8,13 +8,14 @@ import fr.iamdamba.entities.Club;
 import fr.iamdamba.entities.Competition;
 import fr.iamdamba.entities.Composition;
 import fr.iamdamba.entities.Joueur;
+import fr.iamdamba.entities.Match;
 import fr.iamdamba.entities.Club;
 import fr.iamdamba.models.AppModel;
 import fr.iamdamba.services.ClubDao;
 import fr.iamdamba.services.ClubDao;
 
 public class ClubDisplay {
-
+    /** Affiche la liste des clubs */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         ClubDao dao = new ClubDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -32,13 +33,73 @@ public class ClubDisplay {
             });
             System.out.println();
         }
-        
+
         // Separateur de ligne
         System.out.println("------------------------------------\n");
 
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la liste des matchs à domicile d'un club */
+    public static void showAllHomeMatchs(Integer id) {
+        AppModel.jpaConfig.startTransaction();
+        ClubDao dao = new ClubDao(AppModel.jpaConfig.getManager(), AppModel.logger);
+        Optional<Club> query = dao.one(id);
+
+        System.out.println("\nClub correspondant à l'id " + id + ": \n");
+
+        if (query.isEmpty()) {
+            System.out.println("Le club n'existe pas\n");
+        } else {
+            List<Match> matchs = query.get().getMatchDomicile();
+
+            System.out.println(query.get().toString());
+
+            System.out.println("\nListe des matchs à domicile du club " + id + ": \n");
+            if (matchs != null) {
+                matchs.forEach(m -> {
+                    System.out.println(m.toString() + "\n");
+                    System.out.println();
+                });
+                System.out.println();
+            }
+        }
+
+        // Separateur de ligne
+        System.out.println("------------------------------------\n");
+
+        AppModel.jpaConfig.commitTransaction();
+
+    }
+
+    /** Affiche la liste des matchs à l'exterieur d'un club */
+    public static void showAllVisitorMatchs(Integer id) {
+        AppModel.jpaConfig.startTransaction();
+        ClubDao dao = new ClubDao(AppModel.jpaConfig.getManager(), AppModel.logger);
+        Optional<Club> query = dao.one(id);
+
+        System.out.println("\nClub correspondant à l'id " + id + ": \n");
+
+        if (query.isEmpty()) {
+            System.out.println("Le club n'existe pas\n");
+        } else {
+            List<Match> matchs = query.get().getMatchExterieur();
+
+            if (matchs != null) {
+                matchs.forEach(m -> {
+                    System.out.println(m.toString() + "\n");
+                    System.out.println();
+                });
+                System.out.println();
+            }
+        }
+        // Separateur de ligne
+        System.out.println("------------------------------------\n");
+
+        AppModel.jpaConfig.commitTransaction();
+    }
+
+    /** Affiche le club correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         ClubDao dao = new ClubDao(AppModel.jpaConfig.getManager(), AppModel.logger);

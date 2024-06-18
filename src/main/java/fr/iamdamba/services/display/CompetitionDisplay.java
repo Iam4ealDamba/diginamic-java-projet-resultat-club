@@ -9,7 +9,7 @@ import fr.iamdamba.models.AppModel;
 import fr.iamdamba.services.CompetitionDao;
 
 public class CompetitionDisplay {
-
+    /** Affiche la liste des competitions */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         CompetitionDao dao = new CompetitionDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -34,6 +34,7 @@ public class CompetitionDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la liste des competitions d'un pays */
     public static void showAllByCountry(String country) {
         AppModel.jpaConfig.startTransaction();
         CompetitionDao dao = new CompetitionDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -58,6 +59,7 @@ public class CompetitionDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la competition correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         CompetitionDao dao = new CompetitionDao(AppModel.jpaConfig.getManager(), AppModel.logger);

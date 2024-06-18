@@ -10,6 +10,7 @@ import fr.iamdamba.models.AppModel;
 import fr.iamdamba.services.JoueurDao;
 
 public class JoueurDisplay {
+    /** Affiche la liste des joueurs */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         JoueurDao dao = new JoueurDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -40,6 +41,7 @@ public class JoueurDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la liste des joueurs d'un pays */
     public static void showAllByCountry(String country) {
         AppModel.jpaConfig.startTransaction();
         JoueurDao dao = new JoueurDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -64,6 +66,7 @@ public class JoueurDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la Joueur correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         JoueurDao dao = new JoueurDao(AppModel.jpaConfig.getManager(), AppModel.logger);

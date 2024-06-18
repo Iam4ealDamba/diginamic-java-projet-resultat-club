@@ -13,7 +13,7 @@ import fr.iamdamba.services.ApparitionDao;
 import fr.iamdamba.services.MatchDao;
 
 public class ApparitionDisplay {
-
+    /** Affiche la liste des apparitions */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         ApparitionDao dao = new ApparitionDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -38,6 +38,7 @@ public class ApparitionDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche l'apparition correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         ApparitionDao dao = new ApparitionDao(AppModel.jpaConfig.getManager(), AppModel.logger);

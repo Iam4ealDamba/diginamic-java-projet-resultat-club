@@ -11,6 +11,7 @@ import fr.iamdamba.models.AppModel;
 import fr.iamdamba.services.EvenementDao;
 
 public class EvenementDisplay {
+    /** Affiche la liste des Evenements */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         EvenementDao dao = new EvenementDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -35,6 +36,7 @@ public class EvenementDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la liste des Evenements d'un pays */
     public static void showAllByCountry(String country) {
         AppModel.jpaConfig.startTransaction();
         EvenementDao dao = new EvenementDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -62,6 +64,7 @@ public class EvenementDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche l'Evenement correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         EvenementDao dao = new EvenementDao(AppModel.jpaConfig.getManager(), AppModel.logger);

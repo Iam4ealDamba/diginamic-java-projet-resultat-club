@@ -11,7 +11,7 @@ import fr.iamdamba.services.ValeurMarcheDao;
 import fr.iamdamba.services.ValeurMarcheDao;
 
 public class ValeurMarcheDisplay {
-
+    /** Affiche la liste des ValeurMarches */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         ValeurMarcheDao dao = new ValeurMarcheDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -36,6 +36,7 @@ public class ValeurMarcheDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la liste des ValeurMarches d'un pays */
     public static void showAllByCountry(String country) {
         AppModel.jpaConfig.startTransaction();
         ValeurMarcheDao dao = new ValeurMarcheDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -64,6 +65,7 @@ public class ValeurMarcheDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la ValeurMarche correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         ValeurMarcheDao dao = new ValeurMarcheDao(AppModel.jpaConfig.getManager(), AppModel.logger);

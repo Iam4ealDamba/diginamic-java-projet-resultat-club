@@ -1,7 +1,7 @@
 package fr.iamdamba;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +28,7 @@ import fr.iamdamba.services.ValeurMarcheDao;
 import fr.iamdamba.utils.ExtractCSVUtils;
 
 public class Init {
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		// #region Initialisation Variables de l'application
 		Logger logger = LoggerFactory.getLogger(Init.class);
 		JpaConfig jpaConfig = new JpaConfig("diginamic-resultat-club-init", logger);
@@ -79,6 +79,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// #region Transaction des clubs
@@ -97,6 +98,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// #region Transaction des joueurs
@@ -113,6 +115,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// #region Transaction des valeurs de marche
@@ -135,6 +138,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// #region Transaction des matchs
@@ -179,6 +183,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// #region Transaction des evenements
@@ -222,6 +227,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// #region Transaction des compositions
@@ -258,7 +264,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
-
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// #region Transaction des apparitions
@@ -300,6 +306,7 @@ public class Init {
 		}
 
 		jpaConfig.commitTransaction();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		// #endregion
 
 		// Fin de l'unite de persistence

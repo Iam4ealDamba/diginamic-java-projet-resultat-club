@@ -13,7 +13,7 @@ import fr.iamdamba.services.CompositionDao;
 import fr.iamdamba.services.CompositionDao;
 
 public class CompositionDisplay {
-
+    /** Affiche la liste des Compositions */
     public static void showAll() {
         AppModel.jpaConfig.startTransaction();
         CompositionDao dao = new CompositionDao(AppModel.jpaConfig.getManager(), AppModel.logger);
@@ -38,6 +38,7 @@ public class CompositionDisplay {
         AppModel.jpaConfig.commitTransaction();
     }
 
+    /** Affiche la Composition correspondant à l'id */
     public static void showOne(Object id) {
         AppModel.jpaConfig.startTransaction();
         CompositionDao dao = new CompositionDao(AppModel.jpaConfig.getManager(), AppModel.logger);
